@@ -1,3 +1,9 @@
+import praw
+from requests import Session
+import csv
+import os
+
+
 """
 Pseudo 
 
@@ -6,7 +12,21 @@ Pseudo
 3. Generate the images from Wombo's dream
 
 """
+locationPath = 'myLocation'
+# register Reddit Application here: https://www.reddit.com/prefs/apps/
+myClientId = 'get client Id here'
+myClientSecret = 'clientSecret'
+redditPassword = 'your password'
 
+#replace this with your information per: https://praw.readthedocs.io/en/stable/getting_started/configuration.html
+redditInfo = praw.Reddit(
+                client_id= myClientId,
+                client_secret= myClientSecret,
+                password= redditPassword,
+                requestor_kwargs={"session": session},  # pass the custom Session instance
+                user_agent="testscript by u/fakebot3",
+                username="fakebot3",
+            )
 
 # Getting the Prompts from Reddit 
 
@@ -36,3 +56,7 @@ def getRedditPosts(subredditName):
 		writer.writeheader()
 		writer.writerows(writing_prompts_dict)
 	csv_file.close()
+
+	
+if __name__ == "__main__":
+    getRedditPosts('writingprompts')
