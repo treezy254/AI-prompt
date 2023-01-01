@@ -1,12 +1,26 @@
 # Creating the Artwork with Wombo
+import time
+from selenium.webdriver.common.keys import Keys
+import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import TimeoutException
+from bs4 import BeautifulSoup
+from PIL import Image
+
+saveLocation = '~/womboArtwork/'
+
 
 def wombo(phrase, art_style. type=''):
 	print(art_style)
 	home_link = 'https://app.wombo.art/'
 	chrome_options = Options()
 	chrome_options.add_arguement("--headless")
-	driver =
-webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chrome_options)
+	driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chrome_options)
 	driver.get(home_link)
 	time.sleep(2)
 	driver.implicitly_wait(30)
