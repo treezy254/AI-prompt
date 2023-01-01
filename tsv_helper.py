@@ -7,3 +7,9 @@ def readTabforWombo(filename):
 
 			if dir['Style'] != 'Done' and len(dir['Summary']) > 0:
 				wombo(dir['Summary'], dir['Style'], dir['Genre'])
+				
+
+				
+
+if __name__ == "__main__":
+    readTabforWombo('mytsv.txt')
